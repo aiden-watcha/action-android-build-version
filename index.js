@@ -4,12 +4,17 @@ const fs = require('fs');
 
 const versionNameRegexPattern = /(versionName(?:\s|=)*)(.*)/;
 
+function replaceAll(str, searchStr, replaceStr) {
+
+   return str.split(searchStr).join(replaceStr);
+}
+
 try {
     const gradlePath = core.getInput('gradlePath');
     console.log(`Gradle Path : ${gradlePath}`);
 
     fs.readFile(gradlePath, 'utf8', function (err, data) {
-        const versionName = data.match(versionNameRegexPattern)[2].replace("\"", "");;
+        const versionName = replaceAll(data.match(versionNameRegexPattern)[2],"\"", "");
         console.log(`Version Name : ${versionName}`);
         
         core.setOutput("versionName", `v${versionName}`);

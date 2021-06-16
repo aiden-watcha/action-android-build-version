@@ -3,7 +3,7 @@ const github = require('@actions/github');
 const fs = require('fs');
 
 const versionNameRegexPattern = /(versionName(?:\s|=)*)(.*)/;
-gradle.match(/(versionName(?:\s|=)*)(.*)/);
+
 try {
     const gradlePath = core.getInput('gradlePath');
     console.log(`Gradle Path : ${gradlePath}`);

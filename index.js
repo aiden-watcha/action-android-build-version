@@ -9,7 +9,7 @@ try {
     console.log(`Gradle Path : ${gradlePath}`);
 
     fs.readFile(gradlePath, 'utf8', function (err, data) {
-        const versionName = data.match(versionNameRegexPattern)[2];
+        const versionName = data.match(versionNameRegexPattern)[2].replace("\"", "");;
         console.log(`Version Name : ${versionName}`);
         
         core.setOutput("versionName", versionName);

@@ -12,7 +12,7 @@ try {
         const versionName = data.match(versionNameRegexPattern)[2].replace("\"", "");;
         console.log(`Version Name : ${versionName}`);
         
-        core.setOutput("versionName", versionName);
+        core.setOutput("versionName", `v${versionName}`);
     });
 
 } catch (error) {
